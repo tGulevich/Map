@@ -24,114 +24,121 @@
     // Change color of zone
     var changeColorPixel = function (data, newColor, oldColor1, oldColor2, oldColor3, oldColor4, oldColor5, oldColor6, oldColor7, oldColor8)
     {
-        var img, cnv, ctx, imgData;
-        
-    
-        img = document.createElement('img');
+        var img = document.createElement('img');
         img.src = data;
-    
-        cnv = document.createElement('canvas');
         
-        //img.width = img.naturalWidth;
-        cnv.width = img.width || img.naturalWidth; 
-        cnv.height = img.height;
-    
-        ctx = cnv.getContext('2d');
+        img.onload = function() {
+            mapImage.src = draw(this);
+        };
         
-        ctx.drawImage(img, 0, 0);
-    
-        imgData = ctx.getImageData(0, 0, cnv.width, cnv.height);
-        data = imgData.data;
-    
         
-        for(var x = 0, len = data.length; x < len; x += 4) {   
+
+        function draw(img) {
+
+            var cnv, ctx, imgData;
+        
+            cnv = document.createElement('canvas');
+            cnv.width = img.width; 
+            cnv.height = img.height;
+        
+            ctx = cnv.getContext('2d');
             
+            ctx.drawImage(img, 0, 0);
+        
+            imgData = ctx.getImageData(0, 0, cnv.width, cnv.height);
+            data = imgData.data;
+        
+            
+            for(var x = 0, len = data.length; x < len; x += 4) {   
+                
 
-            if((data[x] == oldColor1[0]) &&
-                (data[x + 1] >= oldColor1[1]-15 && data[x + 1] <= oldColor1[1]+15) &&
-                (data[x + 2] >= oldColor1[2]-15 && data[x + 2] <= oldColor1[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
+                if((data[x] == oldColor1[0]) &&
+                    (data[x + 1] >= oldColor1[1]-15 && data[x + 1] <= oldColor1[1]+15) &&
+                    (data[x + 2] >= oldColor1[2]-15 && data[x + 2] <= oldColor1[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor2[0]) &&
+                    (data[x + 1] >= oldColor2[1]-15 && data[x + 1] <= oldColor2[1]+15) &&
+                    (data[x + 2] >= oldColor2[2]-15 && data[x + 2] <= oldColor2[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor3[0]) &&
+                    (data[x + 1] >= oldColor3[1]-15 && data[x + 1] <= oldColor3[1]+15) &&
+                    (data[x + 2] >= oldColor3[2]-15 && data[x + 2] <= oldColor3[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor4[0]) &&
+                    (data[x + 1] >= oldColor4[1]-15 && data[x + 1] <= oldColor4[1]+15) &&
+                    (data[x + 2] >= oldColor4[2]-15 && data[x + 2] <= oldColor4[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor5[0]) &&
+                    (data[x + 1] >= oldColor5[1]-15 && data[x + 1] <= oldColor5[1]+15) &&
+                    (data[x + 2] >= oldColor5[2]-15 && data[x + 2] <= oldColor5[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor6[0]) &&
+                    (data[x + 1] >= oldColor6[1]-15 && data[x + 1] <= oldColor6[1]+15) &&
+                    (data[x + 2] >= oldColor6[2]-15 && data[x + 2] <= oldColor6[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor7[0]) &&
+                    (data[x + 1] >= oldColor7[1]-15 && data[x + 1] <= oldColor7[1]+15) &&
+                    (data[x + 2] >= oldColor7[2]-15 && data[x + 2] <= oldColor7[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
+
+                if((data[x] == oldColor8[0]) &&
+                    (data[x + 1] >= oldColor8[1]-15 && data[x + 1] <= oldColor8[1]+15) &&
+                    (data[x + 2] >= oldColor8[2]-15 && data[x + 2] <= oldColor8[2]+15))
+                {   
+                    data[x] = newColor[0];
+                    data[x + 1] = newColor[1];
+                    data[x + 2] = newColor[2];
+
+                }
 
             }
 
-            if((data[x] == oldColor2[0]) &&
-                (data[x + 1] >= oldColor2[1]-15 && data[x + 1] <= oldColor2[1]+15) &&
-                (data[x + 2] >= oldColor2[2]-15 && data[x + 2] <= oldColor2[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor3[0]) &&
-                (data[x + 1] >= oldColor3[1]-15 && data[x + 1] <= oldColor3[1]+15) &&
-                (data[x + 2] >= oldColor3[2]-15 && data[x + 2] <= oldColor3[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor4[0]) &&
-                (data[x + 1] >= oldColor4[1]-15 && data[x + 1] <= oldColor4[1]+15) &&
-                (data[x + 2] >= oldColor4[2]-15 && data[x + 2] <= oldColor4[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor5[0]) &&
-                (data[x + 1] >= oldColor5[1]-15 && data[x + 1] <= oldColor5[1]+15) &&
-                (data[x + 2] >= oldColor5[2]-15 && data[x + 2] <= oldColor5[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor6[0]) &&
-                (data[x + 1] >= oldColor6[1]-15 && data[x + 1] <= oldColor6[1]+15) &&
-                (data[x + 2] >= oldColor6[2]-15 && data[x + 2] <= oldColor6[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor7[0]) &&
-                (data[x + 1] >= oldColor7[1]-15 && data[x + 1] <= oldColor7[1]+15) &&
-                (data[x + 2] >= oldColor7[2]-15 && data[x + 2] <= oldColor7[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
-            if((data[x] == oldColor8[0]) &&
-                (data[x + 1] >= oldColor8[1]-15 && data[x + 1] <= oldColor8[1]+15) &&
-                (data[x + 2] >= oldColor8[2]-15 && data[x + 2] <= oldColor8[2]+15))
-            {   
-                data[x] = newColor[0];
-                data[x + 1] = newColor[1];
-                data[x + 2] = newColor[2];
-
-            }
-
+            ctx.putImageData(imgData, 0, 0);
+            return cnv.toDataURL();
         }
 
-        ctx.putImageData(imgData, 0, 0);
-        return cnv.toDataURL();
-    }
+    };
 
 
     // Change color of all map
@@ -150,6 +157,7 @@
         ctx.drawImage(img, 0, 0);
     
         imgData = ctx.getImageData(0, 0, cnv.width, cnv.height)
+        
         data = imgData.data;
     
         
@@ -167,6 +175,7 @@
 
         ctx.putImageData(imgData, 0, 0);
         return cnv.toDataURL();
+        
     }
 
     
@@ -243,7 +252,7 @@
                 var zoneTwo = document.querySelector('.point-7');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_EIGHT_COLOR, 0, 0, 0, 0, 0, 0, 0);
             
             };
@@ -276,7 +285,7 @@
                 var zoneTwo = document.querySelector('.point-6');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0, 0, 0, 0, 0, 0);
             
             };
@@ -309,7 +318,7 @@
                 var zoneTwo = document.querySelector('.point-5');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_SIX_COLOR, ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0, 0, 0, 0, 0);
             
             };
@@ -342,7 +351,7 @@
                 var zoneTwo = document.querySelector('.point-4');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_FIVE_COLOR, ZONE_SIX_COLOR, ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0, 0, 0, 0);
             
             };
@@ -375,7 +384,7 @@
                 var zoneTwo = document.querySelector('.point-3');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_FOUR_COLOR, ZONE_FIVE_COLOR, ZONE_SIX_COLOR, ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0, 0, 0);
             
             };
@@ -408,23 +417,27 @@
                 var zoneTwo = document.querySelector('.point-2');
                 zoneTwo.classList.remove('point--inactive');
             
-                mapImage.src = changeColorPixel(MAP_SRC, [173,173,173],
+                changeColorPixel(MAP_SRC, [173,173,173],
                     ZONE_THREE_COLOR, ZONE_FOUR_COLOR, ZONE_FIVE_COLOR, ZONE_SIX_COLOR, ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0, 0);
             
             };
         };
 
         var turnOnFirstZone = function () {
+
+            
             var zoneOne = document.querySelector('.point-1');
             zoneOne.classList.remove('point--inactive');
             
-            mapImage.src = '' + changeColorPixel(MAP_SRC, [173,173,173],
+            changeColorPixel(MAP_SRC, [173,173,173],
                 ZONE_TWO_COLOR, ZONE_THREE_COLOR, ZONE_FOUR_COLOR, ZONE_FIVE_COLOR, ZONE_SIX_COLOR, ZONE_SEVEN_COLOR, ZONE_EIGHT_COLOR, 0);
             
             turnOnSecondZone();
         }();
 
     }();
+
+    
 
 
 })();
